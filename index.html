@@ -5,11 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
-<body>
+<body onload="getLocation()">
     <div class="#">
         <img src="Image/genshin-impact-klee-vmdj9lfm2un8rji3.jpg" alt="" class="Image">
         <img src="Image/Masquerade-Guilty-official-wallpaper-genshin.jpg" alt="" class="Image">
     </div>
+    
+    <script>
+        const x = document.getElementById("demo");
+        
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+        
+        function showPosition(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude + 
+          "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
 </body>
 </html>
